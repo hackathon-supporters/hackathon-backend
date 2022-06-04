@@ -37,7 +37,9 @@ if DEBUG == True:
 else :
     SECRET_KEY = secret.SECRETKEY
 
+# access allow
 ALLOWED_HOSTS = ["*"]
+#WHITENOIZE_ALLOW_ALL_ORIGINS = False
 
 
 # Application definition
@@ -94,8 +96,15 @@ if DEBUG:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+    
 else:
     DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    """ DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': os.environ.get('DB_NAME'),
@@ -105,9 +114,7 @@ else:
             'PASSWORD': os.environ.get('DB_PASSWORD'),
             'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
         }
-    }
-
-    
+    } """
 
 
 # Password validation
