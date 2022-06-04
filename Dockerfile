@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD gunicorn config.wsgi -b 0.0.0.0:$PORT
+CMD gunicorn MatchQuiter.MatchQuiter.wsgi -b 0.0.0.0:$PORT
